@@ -1,0 +1,12 @@
+### this are steps to build the dist of ctm_plotting
+### to install ==>>>   pip install dist/ctm_plotting-0.0.1.tar.gz
+
+#rm -rf dist build
+#mkdir dist
+#
+# using build from https://pypi.org/project/build/
+#
+# base on configuration files : setup.cfg and setup.py
+
+pip install build
+python -m build .
