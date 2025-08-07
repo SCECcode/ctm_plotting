@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import xarray as xr
+import json
 import argparse
 
 # Import initiation functions
@@ -39,6 +40,7 @@ def call_func():
     par.add_argument('--z', type = float, required = True)            # Add arugment of depth (m)
     par.add_argument('--modelname', type = str, required = True)      # Add argument of model name: Lee_2025 or Shinevar_2018
     par.add_argument('--modelpath', type = str, required = True)      # Add argument of input model path
+    par.add_argument('--outpath', type = str, required = True)        # Add argument of output file path and file name
     args = par.parse_args()                                           # Extract arguments
     
     # Call the function
@@ -49,13 +51,10 @@ def call_func():
         args.modelname,
         args.modelpath)
 
-    # Print query result
-    print(df)
-
-    # Return
-    return df
+    # Save as json file
+    df.to_json(args.outpath, orient = 'records')
 
 # Make sure the following is not calling when it is being imported, only runs the following when directly run at command prompt
 if __name__ == "__main__":
     # Call the query function
-    df = call_func()
+    call_func()
