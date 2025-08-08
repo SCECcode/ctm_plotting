@@ -1,7 +1,6 @@
 from .Initiation import init_ctm
 from .Value_check import check_inbounds_values
 from .test_plot import test_plot
-from .elevation_horizontal_slice import ElevationHorizontalSlice
 from .calculate_geodesic_track import calculate_geodesic_track
 from .write_csv_output import write_csv_output
 from .dTdz_2D_vertical_cross_section import dTdz_2D_vertical_cross_section

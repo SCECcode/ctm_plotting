@@ -3,18 +3,14 @@
 #  query_2d_horizontal_slice.py
 #
 
+from pyctm import init_ctm, check_inbounds_values, test_plot, write_csv_output
+
 ### Import Packages
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import xarray as xr
 import argparse
-
-# Import initiation functions
-from Initiation import init_ctm 
-from Value_check import check_inbounds_values
-from test_plot import test_plot
-from write_csv_output import write_csv_output
 
 ## query the model along a horizontal slice at fixed depth
 #  - inputs: start longitude and latitude, end longitude and latitude, slice depth; optional plotting

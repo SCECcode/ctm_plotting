@@ -3,6 +3,8 @@
 #  query_0d_point.py
 #
 
+from pyctm import init_ctm, check_inbounds_values
+
 ### Import Packages
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -10,10 +12,6 @@ import numpy as np
 import xarray as xr
 import json
 import argparse
-
-# Import initiation functions
-from Initiation import init_ctm
-from Value_check import check_inbounds_values
 
 ## query the model at a single point
 #  - inputs: latitude, longitude, depth to query model, modelname

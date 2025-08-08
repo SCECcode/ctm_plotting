@@ -1,7 +1,9 @@
+
 # Import package
 import numpy as np
 import pandas as pd
-from dTdz_2D_vertical_cross_section import dTdz_2D_vertical_cross_section
+
+from pyctm import dTdz_2D_vertical_cross_section
 
 ## Compile CSV header information
 #  - inputs: output dataframe, query type

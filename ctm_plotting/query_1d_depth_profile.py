@@ -3,6 +3,8 @@
 #  query_1d_depth_profile.py
 #
 
+from pyctm import init_ctm, check_inbounds_values, test_plot, write_csv_output
+
 ### Import Packages
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -10,12 +12,6 @@ import numpy as np
 import xarray as xr
 import argparse
 from pyproj import Geod
-
-# Import initiation functions
-from Initiation import init_ctm
-from Value_check import check_inbounds_values
-from test_plot import test_plot
-from write_csv_output import write_csv_output
 
 ## query the model along a vertical profile with fixed longitude and latitude
 #  - inputs: longitude, latitude, depths (start, stop, and step), model name to query; option to plot

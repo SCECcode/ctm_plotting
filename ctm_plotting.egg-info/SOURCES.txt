@@ -14,6 +14,13 @@ ctm_plotting.egg-info/requires.txt
 ctm_plotting.egg-info/top_level.txt
 docs/README.txt
 docs/datafile_access
+examples/pyctm/Initiation.py
+examples/pyctm/Value_check.py
+examples/pyctm/__init__.py
+examples/pyctm/calculate_geodesic_track.py
+examples/pyctm/dTdz_2D_vertical_cross_section.py
+examples/pyctm/test_plot.py
+examples/pyctm/write_csv_output.py
 pyctm/Initiation.py
 pyctm/Value_check.py
 pyctm/__init__.py

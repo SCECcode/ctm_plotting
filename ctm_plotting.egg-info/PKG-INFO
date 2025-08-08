@@ -1,4 +1,4 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: ctm_plotting
 Version: 0.0.1
 Summary: Python code extensions for CTM and plotting library for the SCEC CTM
@@ -24,6 +24,18 @@ Requires-Dist: pandas
 Requires-Dist: xarray
 Requires-Dist: pyproj
 Requires-Dist: packaging
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: maintainer
+Dynamic: maintainer-email
+Dynamic: platform
+Dynamic: requires-dist
+Dynamic: summary
 
 
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)

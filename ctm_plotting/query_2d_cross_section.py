@@ -3,6 +3,8 @@
 #  query_2d_cross_section.py
 #
 
+from pyctm import init_ctm, check_inbounds_values, test_plot, calculate_geodesic_track, write_csv_output
+
 ### Import Packages
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -10,13 +12,6 @@ import numpy as np
 import xarray as xr
 import argparse
 from pyproj import Geod
-
-# Import initiation functions
-from Initiation import init_ctm
-from Value_check import check_inbounds_values
-from test_plot import test_plot
-from calculate_geodesic_track import calculate_geodesic_track
-from write_csv_output import write_csv_output
 
 ## query the model along a vertical cross-section between lon/lat pairs
 #  - inputs: start longitude and latitude, end longitude and latitude, start and end depth, and model name; optional plotting
