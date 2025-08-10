@@ -13,9 +13,9 @@ import xarray as xr
 import json
 import argparse
 
-## query the model at a single point
-#  - inputs: latitude, longitude, depth to query model, modelname
-#  - returns: DataFrame with temperature at this point
+## Query the model at a single point
+#  - Inputs: latitude, longitude, depth to query model, modelname, input model path, and output JSON file path (optional)
+#  - Returns: None. Create a JSON file if output path is defined
 def query_0D_point(lat, lon, dep, modelname, modelpath):
 
     # initialize dataset
@@ -38,7 +38,7 @@ def call_func():
     par.add_argument('--z', type = float, required = True)            # Add arugment of depth (m)
     par.add_argument('--modelname', type = str, required = True)      # Add argument of model name: Lee_2025 or Shinevar_2018
     par.add_argument('--modelpath', type = str, required = True)      # Add argument of input model path
-    par.add_argument('--outpath', type = str, required = True)        # Add argument of output file path and file name
+    par.add_argument('--outpath', type = str, required = False)       # Add argument of output file path and file name
     args = par.parse_args()                                           # Extract arguments
     
     # Call the function
@@ -49,8 +49,26 @@ def call_func():
         args.modelname,
         args.modelpath)
 
+    # Rename df column name
+    rename = {'longitude[°]': 'lon',
+              'latitude[°]': 'lat',
+              'depth[m]': 'Z',
+              'temperature[°C]': 'temp'}
+    df = df.rename(columns = rename)
+
+    # Make it become a dictionary
+    df_dict = df.iloc[0].to_dict()
+
+    # Append model name to the output
+    df_dict['model'] = args.modelname
+
     # Save as json file
-    df.to_json(args.outpath, orient = 'records')
+    if args.outpath:
+        with open(args.outpath, 'w') as f:
+            json.dump(df_dict, f, separators = (',', ':'))
+    # Or just print it if didn't define output path
+    else:
+            print(json.dumps(df_dict, separators = (',', ':')))
 
 # Make sure the following is not calling when it is being imported, only runs the following when directly run at command prompt
 if __name__ == "__main__":
