@@ -78,6 +78,17 @@ def call_func():
          args.modelname,
          args.modelpath)
 
+    # Rename columns
+    rename = {'latitude[°]': 'Lat',
+              'longitude[°]': 'Lon',
+              'depth[m]': 'Depth(m)',
+              'temperature[°C]': 'Temperature(°C)'}
+    
+    df = df.rename(columns = rename)
+
+    # Add dummy columns
+    df[['dummy1', 'dummy2']] = np.nan
+
     # Call the function to write the output csv file
     write_csv_output(df, args.outpath, '2D_vertical', args.modelname)
 
