@@ -2,8 +2,10 @@
 # Import package
 import numpy as np
 import pandas as pd
+from pyproj import Geod
 
 from pyctm import dTdz_2D_vertical_cross_section
+
 
 ## Compile CSV header information
 #  - inputs: output dataframe, query type
@@ -94,6 +96,11 @@ def get_csv_header(df, qtype, modelname, **kwargs):
         df_dTdz = dTdz_2D_vertical_cross_section(df)
         dTdz_max = df_dTdz['dTdz[°C/km]'].max()
 
+        # Find horizontal space
+        geod = Geod(ellps = 'WGS84')
+        az1, az2, dist = geod.inv(lon1, lat1, lon2, lat2)
+        horizontal_space = dist / nxy
+
         # write fields
         head += " Cross Section from ({:.3f}, {:.3f}) to ({:.3f}, {:.3f})\n".format(lon1, lat1, lon2, lat2)
         if modelname == 'Lee_2025':
@@ -104,6 +111,7 @@ def get_csv_header(df, qtype, modelname, **kwargs):
         head += "# Start_depth(m): {:.3f}\n".format(zstart)
         head += "# End_depth(m): {:.3f}\n".format(zend)
         head += "# Vert_spacing(m): {:.3f}\n".format(zspace)
+        head += "# Horizontal_spacing(m): {:.3f}\n".format(horizontal_space)
         head += "# Depth_pts: {:}\n".format(nz)
         head += "# Horizontal_pts: {:}\n".format(nxy)
         head += "# Total_pts: {:}\n".format(npts)
@@ -120,10 +128,9 @@ def get_csv_header(df, qtype, modelname, **kwargs):
 
     # catch undefined queries
     else:
-        raise ValueError("Undefined query type", qtype)
+        raise ValueError('Undefined query type', qtype)
 
     return head
-
 ## Output function
 #  - inputs: output dataframe, file path, query type
 #  - returns: None
