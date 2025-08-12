@@ -8,21 +8,21 @@ from pyctm import dTdz_2D_vertical_cross_section
 ## Compile CSV header information
 #  - inputs: output dataframe, query type
 #  - returns: header text
-def get_csv_header(df, qtype, modelname):
+def get_csv_header(df, qtype, modelname, **kwargs):
     
     # common header for all types
     head = "# Title: CTM"
 
     # 1D vertical profile
-    if qtype == "1D_vertical":  
+    if qtype == '1D_vertical':  
 
         # extract data
-        lon, lat = df["longitude[°]"].values[0], df["latitude[°]"].values[0]
-        depths = np.sort(df["depth[m]"].unique())
+        lon, lat = kwargs['longitude'], kwargs['latitude']
+        depths = np.sort(df['Depth(m)'].unique())
         zstart, zend = depths[0], depths[-1]
         zspace = depths[1] - depths[0]
         dz = (depths[-1] - depths[0]) / 1000                              # Convert m to km
-        dT = df["temperature[°C]"].max() - df["temperature[°C]"].min()    # Get temperature difference
+        dT = df['Temperature(°C)'].max() - df['Temperature(°C)'].min()    # Get temperature difference
         dTdz = dT / dz                                                    # Calculate geothermal gradient
 
         # write fields
@@ -41,16 +41,16 @@ def get_csv_header(df, qtype, modelname):
     elif qtype == "2D_horizontal":
 
         # extract data
-        depth = df["depth[m]"].values[0]
-        lons = np.sort(df["longitude[°]"].unique())
-        lats = np.sort(df["latitude[°]"].unique())
+        depth = kwargs['z']
+        lons = np.sort(df['Lon'].unique())
+        lats = np.sort(df['Lat'].unique())
         lon1, lon2 = lons[0], lons[-1]
         lat1, lat2 = lats[0], lats[-1]
         nlon, nlat = lons.size, lats.size
         npts = nlon * nlat
-        Tmin = df["temperature[°C]"].min()
-        Tmax = df["temperature[°C]"].max()
-        Tmean = df["temperature[°C]"].mean()
+        Tmin = df['Temperature(°C)'].min()
+        Tmax = df['Temperature(°C)'].max()
+        Tmean = df['Temperature(°C)'].mean()
 
         # write fields
         head += " Horizontal Slice at {:.3f} m depth\n".format(depth)
@@ -75,22 +75,22 @@ def get_csv_header(df, qtype, modelname):
     elif qtype == "2D_vertical":
         
         # extract data
-        depths = np.sort(df["depth[m]"].unique())
+        depths = np.sort(df['Depth(m)'].unique())
         zstart, zend = depths[0], depths[-1]
         zspace = depths[1] - depths[0]
         nz = depths.size
-        lons = df["longitude[°]"].unique()
-        lats = df["latitude[°]"].unique()
+        lons = df['Lon'].unique()
+        lats = df['Lat'].unique()
         nlon, nlat = lons.size, lats.size
-        lon1 = df.loc[0,"longitude[°]"]
-        lon2 = df.loc[len(df)-1,"longitude[°]"]
-        lat1 = df.loc[0,"latitude[°]"]
-        lat2 = df.loc[len(df)-1,"latitude[°]"]
-        nxy = len(df[["latitude[°]", "longitude[°]"]].drop_duplicates())
+        lon1 = df.loc[0, 'Lon']
+        lon2 = df.loc[len(df)-1,'Lon']
+        lat1 = df.loc[0, 'Lat']
+        lat2 = df.loc[len(df)-1,'Lat']
+        nxy = len(df[['Lat', 'Lon']].drop_duplicates())
         npts = nxy * nz
-        Tmin = df["temperature[°C]"].min()
-        Tmax = df["temperature[°C]"].max()
-        Tmean = df["temperature[°C]"].mean()
+        Tmin = df['Temperature(°C)'].min()
+        Tmax = df['Temperature(°C)'].max()
+        Tmean = df['Temperature(°C)'].mean()
         df_dTdz = dTdz_2D_vertical_cross_section(df)
         dTdz_max = df_dTdz['dTdz[°C/km]'].max()
 
@@ -127,17 +127,17 @@ def get_csv_header(df, qtype, modelname):
 ## Output function
 #  - inputs: output dataframe, file path, query type
 #  - returns: None
-def write_csv_output(df, outfile, qtype, modelname):
+def write_csv_output(df, outfile, qtype, modelname, **kwargs):
     
     # write file without header
     df.to_csv(outfile, index=None, float_format="%.6f", na_rep=np.nan)
 
     # get header 
-    qtext = get_csv_header(df, qtype, modelname)
+    qtext = get_csv_header(df, qtype, modelname, **kwargs)
 
     # update the file to include header
     with open(outfile, "r") as f:
         lines = f.readlines()
     with open(outfile, "w") as f:
         f.write(qtext)
-        f.writelines(lines)   
+        f.writelines(lines)  
