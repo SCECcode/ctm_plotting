@@ -7,18 +7,18 @@ import pandas as pd
 def dTdz_2D_vertical_cross_section(df):
     
     df_copy = df.copy()                                                    # Make a copy of the queried dataframe
-    df_copy['lonlat'] = list(zip(df['longitude[°]'], df['latitude[°]']))   # Make a new column to store longitude and latitude together
+    df_copy['lonlat'] = list(zip(df['Lon'], df['Lat']))   # Make a new column to store longitude and latitude together
 
     grouped = df_copy.groupby(['lonlat'])         # Group data by lonlat tuple
     dTdz_dic = []                                 # Make an empty list to store results later
     
     # Loop through each profile to calculate linear dTdz
     for lonlat, group in grouped:
-        group = group.sort_values('depth[m]')      # Sort each group df by depth
-        z_min = group['depth[m]'].iloc[0]          # Find minimum depth
-        z_max = group['depth[m]'].iloc[-1]         # Find maximum depth
-        T_min = group['temperature[°C]'].iloc[0]   # Find minimum temperature
-        T_max = group['temperature[°C]'].iloc[-1]  # Find maximum temperature
+        group = group.sort_values('Depth(m)')      # Sort each group df by depth
+        z_min = group['Depth(m)'].iloc[0]          # Find minimum depth
+        z_max = group['Depth(m)'].iloc[-1]         # Find maximum depth
+        T_min = group['Temperature(°C)'].iloc[0]   # Find minimum temperature
+        T_max = group['Temperature(°C)'].iloc[-1]  # Find maximum temperature
         
         dTdz = ((T_max - T_min) / (z_max - z_min)) * 1000  # Calculate geothermal gradient, °C/km
 
