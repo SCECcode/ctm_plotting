@@ -28,11 +28,11 @@ def query_1D_vertical_profile(lat, lon, z_start, z_end, z_step, modelname, model
 
     # define dataframe to return
     df = xi.to_dataframe().reset_index()
-    df = df[["longitude[°]", "latitude[°]", "depth[m]", "temperature[°C]"]]
+    df = df[['longitude[°]', 'latitude[°]', 'depth[m]', 'temperature[°C]']]
 
-    # return
+    # return    
     if plot: # optional plot
-        fig = test_plot(xi, "1D_vertical")
+        fig = test_plot(xi, '1D_vertical')
         return df, fig
     else:
         return df
@@ -50,7 +50,6 @@ def call_func():
     par.add_argument('--modelpath', type = str, required = True)      # Add argument of input model path
     par.add_argument('--outpath', type = str, required = True)        # Add argument of output file path and file name
     
-    
     args = par.parse_args()                                           # Extract arguments
     
     # Call the function
@@ -63,8 +62,19 @@ def call_func():
          args.modelname,
          args.modelpath)
 
+    df.drop(columns = ['longitude[°]', 'latitude[°]'], inplace = True)
+
+    # Rename columns
+    rename = {'depth[m]': 'Depth(m)',
+              'temperature[°C]': 'Temperature(°C)'}
+    
+    df = df.rename(columns = rename)
+
+    # Add dummy columns
+    df[['dummy1', 'dummy2']] = np.nan
+    
     # Call the function to write the output csv file
-    write_csv_output(df, args.outpath, '1D_vertical', args.modelname)
+    write_csv_output(df, args.outpath, '1D_vertical', args.modelname, longitude = args.lon, latitude = args.lat)
 
 # Make sure the following is not calling when it is being imported, only runs the following when directly run at command prompt
 if __name__ == "__main__":
