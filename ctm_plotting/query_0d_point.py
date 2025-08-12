@@ -60,8 +60,11 @@ def call_func():
     df_dict = df.iloc[0].to_dict()
 
     # Append model name to the output
-    df_dict['model'] = args.modelname
-
+    if args.modelname == 'Lee_2025':
+        df_dict['model'] = 'lee25'
+    else:
+        df_dict['model'] = 'shinevar18'
+        
     # Save as json file
     if args.outpath:
         with open(args.outpath, 'w') as f:
