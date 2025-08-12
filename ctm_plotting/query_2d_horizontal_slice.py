@@ -69,8 +69,20 @@ def call_func():
          args.modelname,
          args.modelpath)
 
+    df.drop(columns = ['depth[m]'], inplace = True)
+
+    # Rename columns
+    rename = {'longitude[°]': 'Lon',
+              'latitude[°]': 'Lat',
+              'temperature[°C]': 'Temperature(°C)'}
+    
+    df = df.rename(columns = rename)
+
+    # Add dummy columns
+    df[['dummy1', 'dummy2']] = np.nan
+
     # Call the function to write the output csv file
-    write_csv_output(df, args.outpath, '2D_horizontal', args.modelname)    
+    write_csv_output(df, args.outpath, '2D_horizontal', args.modelname, z = args.z)    
 
 # Make sure the following is not calling when it is being imported, only runs the following when directly run at command prompt
 if __name__ == "__main__":
