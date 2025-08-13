@@ -49,6 +49,7 @@ def get_csv_header(df, qtype, modelname, **kwargs):
         lat1, lat2 = lats[0], lats[-1]
         nlon, nlat = lons.size, lats.size
         npts = nlon * nlat
+        spacing = np.abs(lons[1] - lons[0])
         Tmin = df['Temperature(°C)'].min()
         Tmax = df['Temperature(°C)'].max()
         Tmean = df['Temperature(°C)'].mean()
@@ -61,6 +62,7 @@ def get_csv_header(df, qtype, modelname, **kwargs):
             head += "# CTM(abbr): shinevar18\n"
         head += "# Data_type: T[°C]\n"
         head += "# Depth(m): {:.3f}\n".format(depth)
+        head += '# Spacing(degree): {:.6f}\n'.format(spacing)
         head += "# Lon_pts: {:}\n".format(nlon)
         head += "# Lat_pts: {:}\n".format(nlat)
         head += "# Total_pts: {:}\n".format(npts)
