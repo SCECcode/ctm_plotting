@@ -20,7 +20,7 @@ def get_csv_header(df, qtype, modelname, **kwargs):
 
         # extract data
         lon, lat = kwargs['longitude'], kwargs['latitude']
-        depths = np.sort(df['Depth(m)'].unique())
+        depths = np.sort(df['# Depth(m)'].unique())
         zstart, zend = depths[0], depths[-1]
         zspace = depths[1] - depths[0]
         dz = (depths[-1] - depths[0]) / 1000                              # Convert m to km
@@ -44,7 +44,7 @@ def get_csv_header(df, qtype, modelname, **kwargs):
 
         # extract data
         depth = kwargs['z']
-        lons = np.sort(df['Lon'].unique())
+        lons = np.sort(df['# Lon'].unique())
         lats = np.sort(df['Lat'].unique())
         lon1, lon2 = lons[0], lons[-1]
         lat1, lat2 = lats[0], lats[-1]
@@ -81,14 +81,14 @@ def get_csv_header(df, qtype, modelname, **kwargs):
         zstart, zend = depths[0], depths[-1]
         zspace = depths[1] - depths[0]
         nz = depths.size
-        lons = df['Lon'].unique()
+        lons = df['# Lon'].unique()
         lats = df['Lat'].unique()
         nlon, nlat = lons.size, lats.size
-        lon1 = df.loc[0, 'Lon']
-        lon2 = df.loc[len(df)-1,'Lon']
+        lon1 = df.loc[0, '# Lon']
+        lon2 = df.loc[len(df)-1,'# Lon']
         lat1 = df.loc[0, 'Lat']
         lat2 = df.loc[len(df)-1,'Lat']
-        nxy = len(df[['Lat', 'Lon']].drop_duplicates())
+        nxy = len(df[['Lat', '# Lon']].drop_duplicates())
         npts = nxy * nz
         Tmin = df['Temperature(°C)'].min()
         Tmax = df['Temperature(°C)'].max()
@@ -147,4 +147,4 @@ def write_csv_output(df, outfile, qtype, modelname, **kwargs):
         lines = f.readlines()
     with open(outfile, "w") as f:
         f.write(qtext)
-        f.writelines(lines)  
+        f.writelines(lines)
