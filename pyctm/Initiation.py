@@ -8,7 +8,7 @@ import xarray as xr
 def init_ctm(modelname, modelpath):
     
     # open dataset
-    xdata = xr.open_dataset(modelpath)
+    xdata = xr.open_dataset(modelpath, engine="netcdf4")
 
     if modelname == 'Lee_2025':
         # configure: change unit to meters and rename all variables

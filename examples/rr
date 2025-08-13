@@ -7,4 +7,4 @@ PYTHONPATH=$HOME/.local/lib/python3.11/site-packages:$PYTHONPATH query_2d_horizo
 
 PYTHONPATH=$HOME/.local/lib/python3.11/site-packages:$PYTHONPATH query_0d_point.py --lat 36 --lon -118 --z 8000 --modelname Lee_2025 --modelpath ./ThermalModel_WUS_v2.nc --outpath ./test_0d.json
 #
-#query_0d_point.py --lat 36 --lon -118 --z 8000 --modelname Lee_2025 --modelpath ./ThermalModel_WUS_v2.nc
+query_0d_point.py --lat 36 --lon -118 --z 8000 --modelname Lee_2025 --modelpath ./ThermalModel_WUS_v2.nc
