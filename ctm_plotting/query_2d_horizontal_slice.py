@@ -25,8 +25,17 @@ def query_2D_horizontal_slice(lat_start, lon_start, lat_end, lon_end, z_slice, m
                                   "latitude[°]": [lat_start, lat_end], 
                                   "depth[m]": [z_slice]})
     
-    # define longitude and latitude arrays for the slice sample
-    nlon, nlat = 101, 101
+
+    # Define longitude and latitude arrays for the slice sample
+    lon_range = np.abs(lon_end - lon_start)
+    lat_range = np.abs(lat_end - lat_start)
+
+    # Spaing in degree
+    space_deg = np.sqrt((lon_range * lat_range) / 10000)
+
+    nlon = int(np.ceil(lon_range / space_deg) + 1) 
+    nlat = int(np.ceil(lat_range / space_deg) + 1)
+
     lon_vals = np.linspace(lon_start, lon_end, nlon)
     lat_vals = np.linspace(lat_start, lat_end, nlat)
 
