@@ -18,14 +18,14 @@ examples/pyctm/Initiation.py
 examples/pyctm/Value_check.py
 examples/pyctm/__init__.py
 examples/pyctm/calculate_geodesic_track.py
-examples/pyctm/dTdz_2D_vertical_cross_section.py
+examples/pyctm/dTdz_2D_cross_section.py
 examples/pyctm/test_plot.py
 examples/pyctm/write_csv_output.py
 pyctm/Initiation.py
 pyctm/Value_check.py
 pyctm/__init__.py
 pyctm/calculate_geodesic_track.py
-pyctm/dTdz_2D_vertical_cross_section.py
+pyctm/dTdz_2D_cross_section.py
 pyctm/test_plot.py
 pyctm/write_csv_output.py
 tests/test_ucvm_query.py
