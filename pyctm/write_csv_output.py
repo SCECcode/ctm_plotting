@@ -6,6 +6,7 @@ from pyproj import Geod
 
 from pyctm import dTdz_2D_cross_section
 
+
 ## Compile CSV header information
 #  - inputs: output dataframe, query type
 #  - returns: header text

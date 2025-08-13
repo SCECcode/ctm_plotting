@@ -72,7 +72,7 @@ def call_func():
     df.drop(columns = ['depth[m]'], inplace = True)
 
     # Rename columns
-    rename = {'longitude[°]': 'Lon',
+    rename = {'longitude[°]': '# Lon',
               'latitude[°]': 'Lat',
               'temperature[°C]': 'Temperature(°C)'}
     
