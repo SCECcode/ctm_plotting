@@ -3,10 +3,10 @@ set MPATH=.
 
 #query_1d_depth_profile.py --lat 35 --lon -118 --z_start 0 --z_end 30000 --z_step 100 --modelname Lee_2025 --modelpath ${MPATH}/ThermalModel_WUS_v2.nc --outpath ./test1d.csv
 
-#query_2d_cross_section.py --lat_start 34 --lon_start -119 --lat_end 35 --lon_end -116 --z_start 0 --z_end 25000 --modelname Lee_2025 --modelpath ${MPATH}/ThermalModel_WUS_v2.nc --outpath ./test2d_cross.csv
+query_2d_cross_section.py --lat_start 34 --lon_start -119 --lat_end 35 --lon_end -116 --z_start 0 --z_end 25000 --modelname Lee_2025 --modelpath ./ThermalModel_WUS_v2.nc --outpath ./test2d_cross.csv
 
 #query_2d_horizontal_slice.py --lat_start 34 --lon_start -119 --lat_end 35 --lon_end -116 --z 10200 --modelname Lee_2025 --modelpath ${MPATH}/ThermalModel_WUS_v2.nc --outpath ./test2d_horizontal.csv
 
 #query_0d_point.py --lat 36 --lon -118 --z 8000 --modelname Lee_2025 --modelpath ./ThermalModel_WUS_v2.nc --outpath ./test_0d.json
 #
-query_0d_point.py --lat 36 --lon -118 --z 8000 --modelname Lee_2025 --modelpath ./ThermalModel_WUS_v2.nc
+#query_0d_point.py --lat 36 --lon -118 --z 8000 --modelname Lee_2025 --modelpath ./ThermalModel_WUS_v2.nc
