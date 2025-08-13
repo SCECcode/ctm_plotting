@@ -79,8 +79,8 @@ def call_func():
          args.modelpath)
 
     # Rename columns
-    rename = {'latitude[°]': 'Lat',
-              'longitude[°]': 'Lon',
+    rename = {'longitude[°]': '# Lon',
+              'latitude[°]': 'Lat',
               'depth[m]': 'Depth(m)',
               'temperature[°C]': 'Temperature(°C)'}
     
