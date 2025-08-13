@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from pyproj import Geod
 
-from pyctm import dTdz_2D_vertical_cross_section
+from pyctm import dTdz_2D_cross_section
 
 
 ## Compile CSV header information
@@ -93,7 +93,7 @@ def get_csv_header(df, qtype, modelname, **kwargs):
         Tmin = df['Temperature(°C)'].min()
         Tmax = df['Temperature(°C)'].max()
         Tmean = df['Temperature(°C)'].mean()
-        df_dTdz = dTdz_2D_vertical_cross_section(df)
+        df_dTdz = dTdz_2D_cross_section(df)
         dTdz_max = df_dTdz['dTdz[°C/km]'].max()
 
         # Find horizontal space
