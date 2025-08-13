@@ -4,7 +4,7 @@ import pandas as pd
 ##  Calculate geothermal gradient for a 2D vertical slice
 # - input: Dataframe output from query_2D_vertical_cross_section()
 # - returns: Dataframe with geothermal gradient, latitude, and longitude
-def dTdz_2D_vertical_cross_section(df):
+def dTdz_2D_cross_section(df):
     
     df_copy = df.copy()                                                    # Make a copy of the queried dataframe
     df_copy['lonlat'] = list(zip(df['Lon'], df['Lat']))   # Make a new column to store longitude and latitude together
