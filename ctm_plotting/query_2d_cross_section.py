@@ -21,6 +21,11 @@ def query_2D_vertical_cross_section(lat_start, lon_start, lat_end, lon_end, z_st
     # initialize dataset
     xdata = init_ctm(modelname, modelpath)
 
+    # Boyd (2019) model does not start at the surface (depth = 0 meter). Here I have to extrapolate to get the surface temperature.
+    if modelname == 'Boyd_2019':
+        surface = np.insert(xdata['depth[m]'].values, 0, 0)
+        xdata = xdata.interp({'depth[m]': surface}, method = 'linear', kwargs = {'fill_value': 'extrapolate'})
+
     # check validity of query
     check_inbounds_values(xdata, {"longitude[°]": [lon_start, lon_end], 
                                   "latitude[°]": [lat_start, lat_end], 
