@@ -21,6 +21,11 @@ def query_1D_vertical_profile(lat, lon, z_start, z_end, z_step, modelname, model
     # initialize dataset
     xdata = init_ctm(modelname, modelpath)
 
+    # Boyd (2019) model does not start at the surface (depth = 0 meter). Here I have to extrapolate to get the surface temperature.
+    if modelname == 'Boyd_2019':
+        surface = np.insert(xdata['depth[m]'].values, 0, 0)
+        xdata = xdata.interp({'depth[m]': surface}, method = 'linear', kwargs = {'fill_value': 'extrapolate'})
+
     # check validity of query
     check_inbounds_values(xdata, {"longitude[°]": [lon], "latitude[°]": [lat], "depth[m]": [z_start, z_end]})
     zvals = np.arange(z_start, z_end+z_step/10.0, z_step)
