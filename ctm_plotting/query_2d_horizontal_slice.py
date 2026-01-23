@@ -20,12 +20,16 @@ def query_2D_horizontal_slice(lat_start, lon_start, lat_end, lon_end, z_slice, m
     # initialize dataset
     xdata = init_ctm(modelname, modelpath)
 
+    # Boyd (2019) model does not start at the surface (depth = 0 meter). Here I have to extrapolate to get the surface temperature.
+    if modelname == 'Boyd_2019':
+        surface = np.insert(xdata['depth[m]'].values, 0, 0)
+        xdata = xdata.interp({'depth[m]': surface}, method = 'linear', kwargs = {'fill_value': 'extrapolate'})
+
     # check validity of query
     check_inbounds_values(xdata, {"longitude[°]": [lon_start, lon_end], 
                                   "latitude[°]": [lat_start, lat_end], 
                                   "depth[m]": [z_slice]})
     
-
     # Define longitude and latitude arrays for the slice sample
     lon_range = np.abs(lon_end - lon_start)
     lat_range = np.abs(lat_end - lat_start)
@@ -35,7 +39,7 @@ def query_2D_horizontal_slice(lat_start, lon_start, lat_end, lon_end, z_slice, m
 
     nlon = int(np.ceil(lon_range / space_deg) + 1) 
     nlat = int(np.ceil(lat_range / space_deg) + 1)
-
+    
     lon_vals = np.linspace(lon_start, lon_end, nlon)
     lat_vals = np.linspace(lat_start, lat_end, nlat)
 
