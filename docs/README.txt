@@ -17,6 +17,7 @@ These query scripts include:
 - 'query_2d_cross_section.py'
 - 'query_2d_horizontal_slice.py'
 
+
 These query scripts has several dependent Python functions:
 - 'Initation.py'
 - 'Value_check.py'
@@ -25,20 +26,26 @@ These query scripts has several dependent Python functions:
 - 'dTdz_2D_vertical_cross_section.py'
 - 'write_csv_output.py'
 
-Associated CTMs data from Lee et al. (2025) and Shinevar et al. (2018) are also included here:
+
+Associated CTMs data from Lee et al. (2025) and Shinevar et al. (2018), as well as national models of Boyd (2019) and Sui et al. (2025) are also included here:
 - 'ThermalModel_WUS_v2.nc'
 - 'Shinevar_2018_Temperature.nc'
-
+- 'NCM_TemperatureVolume_250929_ll.nc'
+- 'Suietal_GJI_2025_vol.nc'
 
 
 ***Query_0d_point***
-To run 'query_0d_point.py' script, at command prompt, go to the directory of all of scripts, then run "Python query_0d_point.py".
+To run 'query_0d_point.py' script, at command prompt, go to the directory of all the scripts, then run "Python query_0d_point.py".
 Command prompt will ask user to enter all the required input arguments:
 - Latitude (°)
 - Longitude (°)
 - Depth (m)
-- Model name: Either Lee_2025 or Shinevar_2018
-Query 0d point does not returns any output files. Instead, the query results will be printed.
+- Model name: Either Lee_2025 or Shinevar_2018 or Boyd_2019 or Suietal_2025
+- Input model path
+- Output file path as .json file
+Example:
+Python query_0d_point.py --lat 40 --lon -115 --z 10000 --modelname 'Lee_2025' --modelpath 'ThermalModel_WUS_v2.nc' --outpath '0d_point_out.json'
+Query 0d point returns a .json file.
 
 
 
@@ -50,7 +57,9 @@ Command prompt will ask user to enter all the required input arguments:
 - Starting depth (m)
 - Ending depth (m)
 - Depth interval (m)
-- Model name: Either Lee_2025 or Shinevar_2018
+- Model name: Either Lee_2025 or Shinevar_2018 or Boyd_2019 or Suietal_2025
+Example:
+Python query_1d_depth_profile.py --lat 40 --lon -115 --z_start 0 --z_end 20000 --z_step 1000 --modelname 'Lee_2025' --modelpath 'ThermalModel_WUS_v2.nc' --outpath 'test1d.csv'
 Query 1d depth profile returns a .csv file.
 
 
@@ -64,7 +73,9 @@ Command prompt will ask user to enter all the required input arguments:
 - Ending longitude (°)
 - Starting depth (m)
 - Ending depth (m)
-- Model name: Either Lee_2025 or Shinevar_2018
+- Model name: Either Lee_2025 or Shinevar_2018 or Boyd_2019 or Suietal_2025
+Example:
+Python query_2d_cross_section.py --lat_start 40 --lon_start -115 --lat_end 42 --lon_end -113 --z_start 0 --z_end 20000 --modelname 'Lee_2025' --modelpath 'ThermalModel_WUS_v2.nc' --outpath 'test2d_cross.csv'
 Query 2d cross section returns a .csv file.
 
 
@@ -77,5 +88,7 @@ Command prompt will ask user to enter all the required input arguments:
 - Ending latitude (°)
 - Ending longitude (°)
 - Depth (m)
-- Model name: Either Lee_2025 or Shinevar_2018
+- Model name: Either Lee_2025 or Shinevar_2018 or Boyd_2019 or Suietal_2025
+Example:
+Python query_2d_horizontal_slice.py --lat_start 40 --lon_start -115 --lat_end 42 --lon_end -113 --z 10000 --modelname 'Lee_2025' --modelpath 'ThermalModel_WUS_v2.nc' --outpath 'test2d_horizontal.csv'
 Query 2d horizontal slice returns a .csv file.
