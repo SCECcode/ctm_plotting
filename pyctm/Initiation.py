@@ -9,7 +9,7 @@ def init_ctm(modelname, modelpath):
     # open dataset
     xdata = xr.open_dataset(modelpath)
 
-    if modelname == 'Lee_2025':
+    if modelname == 'Lee_2026':
         # configure: change unit to meters and rename all variables
         xdata = xdata.assign_coords({"depth": xdata.depth * 1000})
         xdata = xdata.rename_dims({"longitude": "longitude[°]", 
