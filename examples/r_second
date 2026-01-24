@@ -1,0 +1,19 @@
+# Boyd 2019
+PYTHONPATH=$HOME/.local/lib/python3.11/site-packages:$PYTHONPATH query_0d_point.py --lat 40 --lon -115 --z 10000 --modelname 'Boyd_2019' --modelpath 'NCM_TemperatureVolume_250929_ll.nc' --outpath 'boyd_0d_point_out.json'
+
+PYTHONPATH=$HOME/.local/lib/python3.11/site-packages:$PYTHONPATH query_1d_depth_profile.py --lat 40 --lon -115 --z_start 0 --z_end 20000 --z_step 1000 --modelname 'Boyd_2019' --modelpath 'NCM_TemperatureVolume_250929_ll.nc' --outpath 'boyd_test1d.csv'
+
+PYTHONPATH=$HOME/.local/lib/python3.11/site-packages:$PYTHONPATH query_2d_cross_section.py --lat_start 40 --lon_start -115 --lat_end 42 --lon_end -113 --z_start 0 --z_end 20000 --modelname 'Boyd_2019' --modelpath 'NCM_TemperatureVolume_250929_ll.nc' --outpath 'boyd_test2d_cross.csv'
+
+PYTHONPATH=$HOME/.local/lib/python3.11/site-packages:$PYTHONPATH query_2d_horizontal_slice.py --lat_start 40 --lon_start -115 --lat_end 42 --lon_end -113 --z 10000 --modelname 'Boyd_2019' --modelpath 'NCM_TemperatureVolume_250929_ll.nc' --outpath 'boyd_test2d_horizontal.csv'
+
+# Sui et al 2025
+PYTHONPATH=$HOME/.local/lib/python3.11/site-packages:$PYTHONPATH query_0d_point.py --lat 40 --lon -115 --z 10000 --modelname 'Suietal_2025' --modelpath './Suietal_GJI_2025_vol.nc' --outpath 'suietal_0d_point_out.json'
+
+PYTHONPATH=$HOME/.local/lib/python3.11/site-packages:$PYTHONPATH query_1d_depth_profile.py --lat 40 --lon -115 --z_start 0 --z_end 20000 --z_step 1000 --modelname 'Suietal_2025' --modelpath './Suietal_GJI_2025_vol.nc' --outpath 'suietal_test1d.csv'
+
+query_2d_cross_section.py --lat_start 40 --lon_start -115 --lat_end 42 --lon_end -113 --z_start 0 --z_end 20000 --modelname 'Suietal_2025' --modelpath './Suietal_GJI_2025_vol.nc' --outpath 'suietal_test2d_cross.csv'
+
+PYTHONPATH=$HOME/.local/lib/python3.11/site-packages:$PYTHONPATH query_2d_horizontal_slice.py --lat_start 40 --lon_start -115 --lat_end 42 --lon_end -113 --z 10000 --modelname 'Suietal_2025' --modelpath './Suietal_GJI_2025_vol.nc' --outpath 'suietal_test2d_horizontal.csv'
+
+
