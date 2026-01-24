@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: ctm_plotting
-Version: 0.0.1
+Version: 0.0.2
 Summary: Python code extensions for CTM and plotting library for the SCEC CTM
 Home-page: https://github.com/SCECcode/ctm_plotting
 Author: The SCEC/CTM Developers
@@ -58,7 +58,7 @@ This ctm_plotting software
 # Installation: 
 Prerequisite :  anaconda with python3 virtual environment. The python3 environment should include the 
 following libraries. It is highly recommended to create an environment with this command to bring in 
-the required python XXX modules
+the required python modules
  
 * conda create -n python3 python>3.0 scipy pip numpy matplotlib
 
@@ -67,7 +67,7 @@ the required python XXX modules
 * ./unpack-dist
 * This will build the ctm_plotting utilities, and add the ctm_plotting scripts to the users path.
 
-* If needs to repackage the ctm_plotting (./make-dist), need addictional python pkg  
+* If needs to repackage the ctm_plotting (./make-dist), need additional python pkg  
 *    conda install setuptools wheel
 
 # Usage:
