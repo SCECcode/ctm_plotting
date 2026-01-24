@@ -28,10 +28,14 @@ def get_csv_header(df, qtype, modelname, **kwargs):
 
         # write fields
         head += " 1D Profile\n"
-        if modelname == 'Lee_2025':
-            head += "# CTM(abbr): lee25\n"
+        if modelname == 'Lee_2026':
+            head += "# CTM(abbr): lee2026\n"
         elif modelname == 'Shinevar_2018':
-            head += "# CTM(abbr): shinevar18\n"
+            head += "# CTM(abbr): shinevar2018\n"
+        elif modelname == 'Boyd_2019':
+            head += "# CTM(abbr): boyd2019\n"
+        elif modelname == 'Suietal_2025':
+            head += "# CTM(abbr): suietal2025\n"
         head += "# Lat: {:.6f}\n# Lon: {:.6f}\n".format(lat,lon)
         head += "# Start_depth(m): {:.3f}\n".format(zstart)
         head += "# End_depth(m): {:.3f}\n".format(zend)
@@ -56,10 +60,14 @@ def get_csv_header(df, qtype, modelname, **kwargs):
 
         # write fields
         head += " Horizontal Slice at {:.3f} m depth\n".format(depth)
-        if modelname == 'Lee_2025':
-            head += "# CTM(abbr): lee25\n"
+        if modelname == 'Lee_2026':
+            head += "# CTM(abbr): lee2026\n"
         elif modelname == 'Shinevar_2018':
-            head += "# CTM(abbr): shinevar18\n"
+            head += "# CTM(abbr): shinevar2018\n"
+        elif modelname == 'Boyd_2019':
+            head += "# CTM(abbr): boyd2019\n"
+        elif modelname == 'Suietal_2025':
+            head += "# CTM(abbr): suietal2025\n"
         head += "# Data_type: T[°C]\n"
         head += "# Depth(m): {:.3f}\n".format(depth)
         head += '# Spacing(degree): {:.6f}\n'.format(spacing)
@@ -104,10 +112,14 @@ def get_csv_header(df, qtype, modelname, **kwargs):
 
         # write fields
         head += " Cross Section from ({:.3f}, {:.3f}) to ({:.3f}, {:.3f})\n".format(lon1, lat1, lon2, lat2)
-        if modelname == 'Lee_2025':
-            head += "# CTM(abbr): lee25\n"
+        if modelname == 'Lee_2026':
+            head += "# CTM(abbr): lee2026\n"
         elif modelname == 'Shinevar_2018':
             head += "# CTM(abbr): shinevar18\n"
+        elif modelname == 'Boyd_2019':
+            head += "# CTM(abbr): boyd2019\n"
+        elif modelname == 'Suietal_2025':
+            head += "# CTM(abbr): suietal2025\n"
         head += "# Data_type: T[°C]\n"
         head += "# Start_depth(m): {:.3f}\n".format(zstart)
         head += "# End_depth(m): {:.3f}\n".format(zend)
@@ -148,4 +160,4 @@ def write_csv_output(df, outfile, qtype, modelname, **kwargs):
         lines = f.readlines()
     with open(outfile, "w") as f:
         f.write(qtext)
-        f.writelines(lines)
+        f.writelines(lines) 
