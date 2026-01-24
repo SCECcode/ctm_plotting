@@ -65,10 +65,10 @@ def call_func():
     df_dict = df.iloc[0].to_dict()
 
     # Append model name to the output
-    if args.modelname == 'Lee_2025':
-        df_dict['model'] = 'lee25'
+    if args.modelname == 'Lee_2026':
+        df_dict['model'] = 'lee2026'
     elif args.modelname == 'Shinevar_2018':
-        df_dict['model'] = 'shinevar18'
+        df_dict['model'] = 'shinevar2018'
     elif args.modelname == 'Boyd_2019':
         df_dict['model'] = 'boyd2019'
     elif args.modelname == 'Suietal_2025':
