@@ -1,5 +1,5 @@
 
-#pip install dist/ctm_plotting-0.0.1.tar.gz
+#pip install dist/ctm_plotting-0.0.2.tar.gz
 
 ## for moho
 pip3 install --user dist/ctm_plotting-0.0.2.tar.gz
