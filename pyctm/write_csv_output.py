@@ -32,6 +32,8 @@ def get_csv_header(df, qtype, modelname, **kwargs):
             head += "# CTM(abbr): lee2026\n"
         elif modelname == 'Shinevar_2018':
             head += "# CTM(abbr): shinevar2018\n"
+        elif modelname == 'Shinevar_2024':
+            head += "# CTM(abbr): shinevar2024\n"
         elif modelname == 'Boyd_2019':
             head += "# CTM(abbr): boyd2019\n"
         elif modelname == 'Suietal_2025':
@@ -64,6 +66,8 @@ def get_csv_header(df, qtype, modelname, **kwargs):
             head += "# CTM(abbr): lee2026\n"
         elif modelname == 'Shinevar_2018':
             head += "# CTM(abbr): shinevar2018\n"
+        elif modelname == 'Shinevar_2024':
+            head += "# CTM(abbr): shinevar2024\n"
         elif modelname == 'Boyd_2019':
             head += "# CTM(abbr): boyd2019\n"
         elif modelname == 'Suietal_2025':
@@ -115,7 +119,9 @@ def get_csv_header(df, qtype, modelname, **kwargs):
         if modelname == 'Lee_2026':
             head += "# CTM(abbr): lee2026\n"
         elif modelname == 'Shinevar_2018':
-            head += "# CTM(abbr): shinevar2018\n"
+            head += "# CTM(abbr): shinevar18\n"
+        elif modelname == 'Shinevar_2024':
+            head += "# CTM(abbr): shinevar2024\n"
         elif modelname == 'Boyd_2019':
             head += "# CTM(abbr): boyd2019\n"
         elif modelname == 'Suietal_2025':
