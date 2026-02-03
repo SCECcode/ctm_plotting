@@ -32,6 +32,17 @@ def init_ctm(modelname, modelpath):
                                    "depth": "depth[m]",
                                    "temperature": "temperature[°C]"})
 
+    elif modelname == 'Shinevar_2024':
+        # configure: rename all variables
+        xdata = xdata.rename_dims({"longitude": "longitude[°]", 
+                                   "latitude": "latitude[°]",
+                                   "depth": "depth[m]"})
+        
+        xdata = xdata.rename_vars({"longitude": "longitude[°]", 
+                                   "latitude": "latitude[°]",
+                                   "depth": "depth[m]",
+                                   "temperature": "temperature[°C]"})
+
     elif modelname == 'Boyd_2019':
         # configure: rename all variables
         xdata = xdata.rename_dims({"dimk": "longitude[°]", 
