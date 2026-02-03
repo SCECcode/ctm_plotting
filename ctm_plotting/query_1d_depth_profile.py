@@ -76,7 +76,7 @@ def call_func():
     df = df.rename(columns = rename)
 
     tmp = args.outpath[:]
-    final_outpath=tmp.replace('data','data_final')
+    final_outpath=tmp.replace('matprops','matprops_final')
     write_csv_output(df, final_outpath, '1D_vertical', args.modelname, longitude = args.lon, latitude = args.lat)
 
     # Add dummy columns
