@@ -1,0 +1,8 @@
+Python query_0d_point.py --lat 32 --lon -120 --z 10000 --modelname 'Shinevar_2024' --modelpath 'Shinevar_2024_Temperature.nc' --outpath '0d_point_out.json'
+
+Python query_1d_depth_profile.py --lat 32 --lon -120 --z_start 0 --z_end 20000 --z_step 1000 --modelname 'Shinevar_2024' --modelpath 'Shinevar_2024_Temperature.nc' --outpath 'test1d.csv'
+
+Python query_2d_cross_section.py --lat_start 32 --lon_start -120 --lat_end 34 --lon_end -118 --z_start 0 --z_end 20000 --modelname 'Shinevar_2024' --modelpath 'Shinevar_2024_Temperature.nc' --outpath 'test2d_cross.csv'
+
+Python query_2d_horizontal_slice.py --lat_start 32 --lon_start -120 --lat_end 34 --lon_end -118 --z 10000 --modelname 'Shinevar_2024' --modelpath 'Shinevar_2024_Temperature.nc' --outpath 'test2d_horizontal.csv'ZZ
+

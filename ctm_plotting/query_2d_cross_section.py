@@ -91,6 +91,10 @@ def call_func():
     
     df = df.rename(columns = rename)
 
+    final_outpath = args.outpath[:]
+    final_outpath.replace('data','data_final',1)
+    write_csv_output(df, final_outpath, '2D_vertical', args.modelname)
+
     # Add dummy columns
     df[['dummy1', 'dummy2']] = np.nan
 
