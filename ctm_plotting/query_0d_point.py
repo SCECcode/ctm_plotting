@@ -69,6 +69,8 @@ def call_func():
         df_dict['model'] = 'lee2026'
     elif args.modelname == 'Shinevar_2018':
         df_dict['model'] = 'shinevar2018'
+    elif args.modelname == 'Shinevar_2024':
+        df_dict['model'] = 'shinevar2024'
     elif args.modelname == 'Boyd_2019':
         df_dict['model'] = 'boyd2019'
     elif args.modelname == 'Suietal_2025':
