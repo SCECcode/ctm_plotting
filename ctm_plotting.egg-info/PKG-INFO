@@ -1,12 +1,12 @@
 Metadata-Version: 2.4
 Name: ctm_plotting
-Version: 0.0.2
+Version: 0.0.3
 Summary: Python code extensions for CTM and plotting library for the SCEC CTM
 Home-page: https://github.com/SCECcode/ctm_plotting
 Author: The SCEC/CTM Developers
-Author-email: software@scec.usc.edu
+Author-email: scec-software@usc.edu
 Maintainer: The SCEC/CTM Developers
-Maintainer-email: software@scec.usc.edu
+Maintainer-email: scec-software@usc.edu
 License: Apache 2.0 license
 Keywords: CTM
 Platform: Any
@@ -94,7 +94,7 @@ Please see the [ctm_plotting documetation](https://github.com/sceccode/ctm_plott
 # Support:
 Support for ctm_plotting is provided by that Statewide California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including CTM. Users can report issues and feature requests using CTM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
 1. [CTM Github Issue Tracker:](https://github.com/SCECcode/ctm_plotting/issues)
-2. Email Contact: software@scec.usc.edu
+2. Email Contact: scec-software@usc.edu
 
 # Contributing:
 We welcome contributions to the ctm_plotting software utilities. An overview of the process for contributing seismic models or 
