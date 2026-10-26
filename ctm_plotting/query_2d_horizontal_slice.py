@@ -82,7 +82,7 @@ def call_func():
          args.modelname,
          args.modelpath)
 
-    df.drop(columns = ['depth[m]'], inplace = True)
+    df.drop(columns = ['depth[m]'])
 
     # Rename columns
     rename = {'longitude[°]': '# Lon',

@@ -55,7 +55,7 @@ Please see the [ctm_plotting documetation](https://github.com/sceccode/ctm_plott
 # Support:
 Support for ctm_plotting is provided by that Statewide California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including CTM. Users can report issues and feature requests using CTM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
 1. [CTM Github Issue Tracker:](https://github.com/SCECcode/ctm_plotting/issues)
-2. Email Contact: software@scec.usc.edu
+2. Email Contact: scec-software@usc.edu
 
 # Contributing:
 We welcome contributions to the ctm_plotting software utilities. An overview of the process for contributing seismic models or 

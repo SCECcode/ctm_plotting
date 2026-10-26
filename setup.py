@@ -1,7 +1,7 @@
 """
   @file setup.py
   @brief Build and install the pyctm
-  @author The SCEC/CTM Developers - <software@scec.usc.edu>
+  @author The SCEC/CTM Developers - <scec-software@usc.edu>
 
 """
 
@@ -11,7 +11,7 @@ from setuptools import setup
 NAME = "ctm_plotting"
 FULLNAME = "ctm_plotting with pyctm"
 AUTHOR = "The SCEC/CTM Developers"
-AUTHOR_EMAIL = "software@scec.usc.edu"
+AUTHOR_EMAIL = "scec-software@usc.edu"
 MAINTAINER = AUTHOR
 MAINTAINER_EMAIL = AUTHOR_EMAIL
 LICENSE = "Apache 2.0 license"
